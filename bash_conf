@@ -1,0 +1,15 @@
+# Alias git
+alias ggp="git push --force-with-lease"
+alias gc="git clean -f"
+alias gs="git status -u"
+alias gco="git commit -m "
+alias gri="git rebase -i"
+alias gril="git rebase -i head~2"
+alias gclean="comm -12  < (git branch --merged | awk '{print($1)}') < (git branch -r --merged | awk '{print($1)}' | awk -F \/ '{print($2)}')"
+
+# Alias kubernetes
+alias k=kubectl
+alias konf="kubectl config"
+alias kls="kubectl get all,ing -o wide"
+alias krm="kubectl delete all,ing -l"
+alias kgo="kubectl config use-context"
