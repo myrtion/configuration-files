@@ -1,0 +1,7 @@
+[core]
+	editor = vim
+[alias]
+	ci = commit
+	lg = log --graph --oneline --decorate
+[pull]
+	rebase = true
