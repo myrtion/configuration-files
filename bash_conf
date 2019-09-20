@@ -1,11 +1,15 @@
 # Alias git
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+alias g="git"
 alias ggp="git push --force-with-lease"
+__git_complete ggp _git_push
 alias gc="git clean -f"
+alias go="git checkout"
+__git_complete go _git_checkout
 alias gs="git status -u"
 alias gco="git commit -m "
 alias gri="git rebase -i"
 alias gril="git rebase -i head~2"
-alias gclean="comm -12  < (git branch --merged | awk '{print($1)}') < (git branch -r --merged | awk '{print($1)}' | awk -F \/ '{print($2)}')"
 
 # Alias kubernetes
 alias k=kubectl
@@ -13,3 +17,11 @@ alias konf="kubectl config"
 alias kls="kubectl get all,ing -o wide"
 alias krm="kubectl delete all,ing -l"
 alias kgo="kubectl config use-context"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/arnaud_klingel/.sdkman"
+[[ -s "/Users/arnaud_klingel/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/arnaud_klingel/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
